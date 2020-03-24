@@ -1,0 +1,100 @@
+doctype
+html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${theme.name}`)
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Join #{name} on Slack!
+
+    link(rel='shortcut icon', href=`${path}assets/favicon-32.png`)
+    link(rel='stylesheet', href=`${path}assets/main.css`)
+
+    if css
+      link(rel='stylesheet', href=css)
+
+    if theme.accent
+      style
+        | html .splash .active { color: #{theme.accent}; }
+        | html .splash p.signin a { color: #{theme.accent}; }
+        | html .splash p.signin a:hover { background-color: #{theme.accent}; }
+        | html .splash button { background-color: #{theme.accent}; }
+        | html .splash button:not(.disabled):active { background-color: #{theme.accentDark}; }
+
+    if analytics
+      script(async, src=`https://www.googletagmanager.com/gtag/js?id={gaID}`)
+      script
+      | window.dataLayer = window.dataLayer || [];
+      | function gtag(){dataLayer.push(arguments);}
+      | gtag('js', new Date());
+      | gtag('config', '#{analytics}');
+  body
+
+    .splash
+
+      unless iframe
+        .logos
+          if logo
+            .logo.org
+              img(src=logo, alt=`${name}'s logo`, width='48', height='48')
+          .logo.slack
+            img(src=`${path}assets/slack.svg`, alt='Slack\'s logo', width='48', height='48')
+
+      if channels && channels.length === 1
+        p Join #[strong= name] #[span ##{channels[0]}] on Slack.
+      else
+        p Join #[strong= name] on Slack.
+
+      if active
+        p.status #[strong.active= active] users online now of #[strong.total= total] registered.
+      else
+        p.status #[strong.total= total] users are registered so far.
+
+      form#invite
+
+        if channels
+          if channels.length > 1
+            select.form-item(name='channel')
+              each channel in channels
+                option(value=channel, text=channel)
+          else
+            input(type='hidden', name='channel', value=channels[0])
+
+        if iframe
+          input.form-item(type='email', name='email', placeholder='you@yourdomain.com', required)
+        else
+          input.form-item(type='email', name='email', placeholder='you@yourdomain.com', autofocus, required)
+
+        if recaptcha.sitekey
+          if recaptcha.invisible
+            div#h-captcha.g-recaptcha(
+              data-sitekey=recaptcha.sitekey,
+              data-callback='invisibleCallback',
+              data-size='invisible')
+          else
+            br
+            div.g-recaptcha(data-sitekey=recaptcha.sitekey, data-theme=theme.recaptcha)
+
+        if coc
+          .coc
+            label
+              input(type='checkbox', name='coc', value='1', required)
+              | I agree to the #[a(href=coc, rel='noopener', target='_blank') Code of Conduct].
+
+        button.loading Get my Invite
+
+      p.signin or #[a(href=`https://${org}.slack.com/`, target='_top') sign in].
+
+      unless iframe
+        footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank') slackin extended]
+
+      script
+        | data = {};
+        | data.path = !{JSON.stringify(path)};
+        if recaptcha.sitekey && recaptcha.invisible
+        | function invisibleCallback(token) {
+        |   return submitForm();
+        | }
+
+      script(src='https://www.google.com/recaptcha/api.js', async, defer)
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.slim.min.js')
+      script(src=`${path}assets/superagent.js`)
+      script(src=`${path}assets/client.js`)

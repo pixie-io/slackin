@@ -1,0 +1,128 @@
+{
+  "name": "slackin-extended",
+  "version": "2.0.0",
+  "description": "Public Slack organizations made easy",
+  "repository": "emedvedev/slackin-extended",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "bin": {
+    "slackin": "./bin/slackin"
+  },
+  "files": [
+    "assets/*.{css,js,svg,png,ico}",
+    "bin/slackin",
+    "lib/*.js",
+    "views/*.pug"
+  ],
+  "dependencies": {
+    "args": "^5.0.1",
+    "autoprefixer": "^9.7.4",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "email-regex": "^4.0.0",
+    "express": "^4.17.1",
+    "hostenv": "^2.3.0",
+    "micromatch": "^4.0.2",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "pug": "^2.0.4",
+    "sass": "^1.26.3",
+    "serve-favicon": "^2.5.0",
+    "socket.io": "^2.3.0",
+    "superagent": "^3.8.3",
+    "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.0",
+    "nock": "^12.0.3",
+    "nodemon": "^2.0.2",
+    "stylelint": "^13.2.1",
+    "stylelint-config-twbs-bootstrap": "^2.0.1",
+    "supertest": "^4.0.2",
+    "xo": "^0.28.0"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "dev": "nodemon --watch assets/ --watch lib/ --watch scss/ --ext js,scss,svg --exec \"npm-run-all build start\"",
+    "lint": "npm-run-all --parallel --continue-on-error lint:*",
+    "lint:css": "stylelint \"{assets,scss}/*.{css,scss}\"",
+    "lint:js": "xo",
+    "mocha": "mocha --require ./test/setup --exit",
+    "test": "npm-run-all build lint mocha",
+    "build": "npm-run-all build:*",
+    "build:sass": "sass --style compressed --no-source-map --no-error-css scss/:assets/",
+    "build:prefix": "postcss --use autoprefixer --no-map --replace \"assets/*.css\" \"!assets/iframe-button.css\"",
+    "now-build": "npm run build && cp node_modules/superagent/superagent.js assets",
+    "start": "cross-env-shell node ./bin/slackin $SLACK_SUBDOMAIN $SLACK_API_TOKEN --coc \\\"$SLACKIN_COC\\\" --channels \\\"$SLACKIN_CHANNELS\\\"",
+    "prepublishOnly": "npm run build"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
+      "camelcase": "off",
+      "capitalized-comments": "off",
+      "comma-dangle": "off",
+      "curly": [
+        "error",
+        "multi-line"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "operator-linebreak": [
+        "error",
+        "before"
+      ],
+      "spaced-comment": "off",
+      "unicorn/explicit-length-check": "off",
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/string-content": "off",
+      "wrap-iife": [
+        "error",
+        "outside"
+      ]
+    },
+    "overrides": [
+      {
+        "files": "test/*.js",
+        "envs": [
+          "mocha"
+        ]
+      },
+      {
+        "files": "assets/*.js",
+        "parserOptions": {
+          "ecmaVersion": 3,
+          "sourceType": "script"
+        },
+        "esnext": false,
+        "envs": [
+          "browser"
+        ],
+        "rules": {
+          "no-multi-assign": "off",
+          "semi": "off",
+          "prefer-named-capture-group": "off",
+          "unicorn/no-for-loop": "off",
+          "unicorn/prefer-modern-dom-apis": "off",
+          "unicorn/prefer-node-append": "off",
+          "unicorn/prefer-node-remove": "off",
+          "unicorn/prefer-query-selector": "off",
+          "unicorn/prefer-starts-ends-with": "off"
+        }
+      }
+    ]
+  }
+}
