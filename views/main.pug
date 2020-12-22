@@ -35,19 +35,12 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         .logos
           if logo
             .logo.org
-              img(src=logo, alt=`${name}'s logo`, width='72', height='72')
+              img(src=`${path}assets/pixie-logo.svg`, alt=`Pixie Labs logo`, width='172', height='72')
           .logo.slack
             img(src=`${path}assets/slack.svg`, alt='Slack\'s logo', width='48', height='48')
 
-      if channels && channels.length === 1
-        p Join #[strong= name] #[span ##{channels[0]}] on Slack.
-      else
-        p Join #[strong= name] on Slack.
 
-      if active
-        p.status #[strong.active= active] users online now of #[strong.total= total] registered.
-      else
-        p.status #[strong.total= total] users are registered so far.
+        p.status #[=total] users are registered so far.
 
       form#invite
 
@@ -80,9 +73,9 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
               input(type='checkbox', name='coc', value='1', required)
               | I agree to the #[a(href=coc, rel='noopener', target='_blank') Code of Conduct].
 
-        button.loading Get my Invite
+        button.loading GET INVITE
 
-      p.signin or #[a(href=`https://${org}.slack.com/`, target='_top') sign in].
+      p.signin Already a member? #[a(href=`https://${org}.slack.com/`, target='_top') Sign in] instead.
 
       unless iframe
         footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank') slackin extended]

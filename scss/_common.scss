@@ -34,6 +34,9 @@ body {
   padding-top: 1rem;
   box-sizing: border-box;
   position: relative;
+  background-image: url('/assets/stars-background.png');
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
 .splash {
@@ -80,8 +83,7 @@ body {
       display: block;
       content: "+";
       top: 2.7rem;
-      left: 0;
-      width: 32rem;
+      right: 30%;
       text-align: center;
       color: #d6d6d6;
       font-size: 1.5rem;
