@@ -85,7 +85,38 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
         .right-side
             img(src=`${path}assets/slack-planet.svg`, alt=`Pixie Labs`).slack-planet
             unless iframe
-                    .footer powered by #[a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank') slackin extended]
+                    .powered-by powered by
+                        img(src=`${path}assets/slack-small-logo.svg`, alt=`Slack logo` height='16')
+                        a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank')  slackin extended
+
+    .footer
+        img(src=`${path}assets/pixie-logo.svg`, alt=`Pixie Labs`).footer-logo
+        .social-icons
+            a(href='https://work.withpixie.ai/docs')
+                img(src=`${path}assets/footer/docs-icon.svg`, alt=`Pixie Docs`)
+
+            a(href='https://github.com/pixie-labs/pixie')
+                img(src=`${path}assets/footer/github-icon.svg`, alt=`Pixie Github`)
+
+            a(href='https://slackin.withpixie.ai')
+                img(src=`${path}assets/footer/slack-icon.svg`, alt=`Pixie Slack`)
+
+            a(href='https://www.youtube.com/channel/UCOMCDRvBVNIS0lCyOmst7eg/featured')
+                img(src=`${path}assets/footer/youtube-icon.svg`, alt=`Pixie Youtube`)
+
+            a(href='https://twitter.com/pixie_run')
+                img(src=`${path}assets/footer/twitter-icon.svg`, alt=`Pixie Twitter`)
+        .links-row
+            a(href='https://work.withpixie.ai/login') SIGN IN
+            .vertical-divider
+            a(href='https://pixielabs.ai/terms') TERMS & PRIVACY
+            .vertical-divider
+            a(href='https://pixielabs.ai/community') COMMUNITY
+            .vertical-divider
+            a(href='https://pixielabs.ai/careers') CAREERS
+            .vertical-divider
+            a(href='https://pixielabs.ai/contact') CONTACT
+        .copyright-row © 2020, Pixie Labs Inc.
 
     script
         | data = {};
