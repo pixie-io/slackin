@@ -24,6 +24,13 @@ body {
   color: #9696A5;
 }
 
+.shadow-planet {
+  position: absolute;
+  left: 36%;
+  top: 4%;
+  z-index: 0;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -95,6 +102,7 @@ h1 {
   max-width: 1290px;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
 
   .left-side {
     width: 50%;
@@ -115,6 +123,7 @@ h1 {
         align-items: center;
         justify-content: center;
       }
+
       .button {
         width: 164px;
         font-size: 14px;
@@ -210,6 +219,7 @@ input, textarea {
   @media (max-width: 1000px) {
     margin-top: 32px;
   }
+
   .social-icons {
     width: 100%;
     display: flex;
