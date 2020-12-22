@@ -38,6 +38,16 @@ body {
   margin: 32px 32px;
   width: calc(100% - 64px);
 
+  .left {
+    img {
+      height: 18px;
+      padding-right: 22px;
+      @media (max-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+
   .menu-bar {
     display: flex;
     flex-direction: row;

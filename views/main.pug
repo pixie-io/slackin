@@ -29,7 +29,15 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
             | gtag('config', '#{analytics}');
     body
         .header
-            img(src=`${path}assets/pixie-logo.svg`, alt=`Pixie Labs logo`, width='141')
+            .left
+                img(src=`${path}assets/pixie-logo.svg`, alt=`Pixie Labs logo`, width='141')
+                a(href='https://slackin.withpixie.ai')
+                    img(src=`${path}assets/small-slack-icon.svg`, alt=`Pixie Slack`)
+                a(href='https://github.com/pixie-labs/pixie')
+                    img(src=`${path}assets/footer/github-icon.svg`, alt=`Pixie Github`)
+                a(href='https://twitter.com/pixie_run')
+                        img(src=`${path}assets/footer/twitter-icon.svg`, alt=`Pixie Twitter`)
+
             .menu-bar
                 .menu-item #[a(href=`https://pixielabs.ai/beta`, target='_top') What's Live?]
                 .menu-item #[a(href=`https://pixielabs.ai/about`, target='_top') Company]
@@ -41,12 +49,8 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
     img(src=`${path}assets/shadow-planet.png`, alt=`planet`).shadow-planet
     .container
         .left-side
-
             h1 Join Pixie Community on Slack
-
-
             p.status #[=total] users are registered so far.
-
             form#invite
 
                 if channels
@@ -77,18 +81,14 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
                         label
                             input(type='checkbox', name='coc', value='1', required)
                             | I agree to the #[a(href=coc, rel='noopener', target='_blank') Code of Conduct].
-
                 button.button GET INVITE
-
             p.signin-row Already a member? #[a(href=`https://${org}.slack.com/`, target='_top') Sign in] instead.
-
         .right-side
             img(src=`${path}assets/slack-planet.svg`, alt=`Pixie Labs`).slack-planet
             unless iframe
                     .powered-by powered by
                         img(src=`${path}assets/slack-small-logo.svg`, alt=`Slack logo` height='16')
                         a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank')  slackin extended
-
     .footer
         img(src=`${path}assets/pixie-logo.svg`, alt=`Pixie Labs`).footer-logo
         .social-icons
