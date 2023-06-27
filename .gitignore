@@ -109,3 +109,6 @@ dist
 .idea/modules.xml
 .idea/inspectionProfiles/Project_Default.xml
 .DS_Store
+
+# Built css
+assets/main.css
