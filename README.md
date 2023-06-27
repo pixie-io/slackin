@@ -1,17 +1,13 @@
 ## PIXIE Updates
 
 Create Docker Image:
+
 ```bash
 docker build . -t "gcr.io/pl-dev-infra/slackin/slackin-server:$(date '+%Y%m%d%H%M')"
 docker push <above image>
 ```
 
 Update image pointer in pixie main repo and push to pixie-prod.
-
-
-![Slackin repo banner](https://github.com/zeit/art/blob/e081cf46e6609b51ac485dcc337ac6644c0da5e7/slackin/repo-banner.png)
-
-[![npm version](https://img.shields.io/npm/v/slackin-extended.svg)](https://www.npmjs.com/package/slackin-extended) [![Build Status](https://github.com/emedvedev/slackin-extended/workflows/Tests/badge.svg)](https://github.com/emedvedev/slackin-extended/actions?workflow=Tests) [![MIT License](https://img.shields.io/github/license/emedvedev/slackin-extended)](https://github.com/emedvedev/slackin-extended/blob/master/license.md) [![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/emedvedev/slackin-extended.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/emedvedev/slackin-extended/alerts/)
 
 ## Features
 
@@ -26,36 +22,6 @@ Slackin-extended is a more customizable and extendable fork of the original [sla
 Check out the [Demo](https://slackin-extended.now.sh/), which is deployed live from the `master` branch. For the list of changes in `slackin-extended` see [HISTORY.md](HISTORY.md).
 
 **Disclaimer:** this project is not affiliated with Slack. The Slack logo and Slack API are copyright Slack Technologies, Inc.
-
-## Installation
-
-### Heroku
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-### Now
-
-Set up [Now](https://zeit.co/now) on your device and run it! If you don't have an `.env` file for your Now deployment (see [environment variables and secrets](https://zeit.co/docs/v2/environment-variables-and-secrets#accessing-environment-variables)), you can just set the two required parameters through `now secrets`:
-
-```bash
-git clone https://github.com/emedvedev/slackin-extended.git
-now secrets add slack-subdomain "myslack"
-now secrets add slack-api-token "xoxb-YOUR-SLACK-TOKEN"
-now slackin-extended
-```
-
-### Docker
-
-The Docker container is available on Docker Hub: [emedvedev/slackin-extended](https://hub.docker.com/r/emedvedev/slackin-extended/).
-
-### npm
-
-To host Slackin-extended yourself, install it via `npm` and launch it on your server:
-
-```bash
-npm install -g slackin-extended
-slackin "workspace-id" "your-slack-token"
-```
 
 ## Usage
 
