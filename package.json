@@ -99,6 +99,7 @@
       "unicorn/numeric-separators-style": "off",
       "unicorn/prefer-module": "off",
       "unicorn/prevent-abbreviations": "off",
+      "unicorn/prefer-top-level-await": "off",
       "wrap-iife": [
         "error",
         "outside"

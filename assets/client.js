@@ -42,6 +42,7 @@ function submitForm(ev) {
 
 body.addEventListener('submit', submitForm)
 
+// eslint-disable-next-line max-params
 function invite(chan, coc, email, gcaptcha_response_value, fn) {
   request
     .post(data.path + 'invite')
