@@ -72,13 +72,11 @@ html.theme-pixie {
     // $color-users-total:
     $foreground,
     // $color-input-text:
-    // darken($foreground, 40),
-    $button-text,
+    darken($foreground, 40),
     // $color-input-border:
     darken($foreground, 60),
     // $color-input-focused-text:
-    //darken($foreground, 20),
-    $button-text,
+    darken($foreground, 20),
     // $color-input-focused-border:
     darken($foreground, 40)
   );
