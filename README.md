@@ -1,13 +1,6 @@
 ## PIXIE Updates
 
-Create Docker Image:
-
-```bash
-docker build . -t "gcr.io/pl-dev-infra/slackin/slackin-server:$(date '+%Y%m%d%H%M')"
-docker push <above image>
-```
-
-Update image pointer in pixie main repo and push to pixie-prod.
+The docker image is built using github actions and pushed to `ghcr.io/pixie-io/slackin`
 
 ## Features
 
