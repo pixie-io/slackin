@@ -1,5 +1,7 @@
-const assert = require('assert');
+const assert = require('node:assert');
+
 const nock = require('nock');
+
 const invite = require('../lib/slack-invite');
 
 describe('slack-invite', () => {

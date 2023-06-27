@@ -1,5 +1,8 @@
+const process = require('node:process');
+
 const nock = require('nock');
 const request = require('supertest');
+
 const slackin = require('../lib');
 
 describe('slackin', () => {
@@ -46,7 +49,6 @@ describe('slackin', () => {
         org: 'myorg',
       };
 
-      // TODO simplify mocking
       nock(`https://${opts.org}.slack.com`)
         .post('/api/users.admin.invite')
         .reply(200, { ok: true });
@@ -70,7 +72,6 @@ describe('slackin', () => {
         org: 'myorg',
       };
 
-      // TODO simplify mocking
       nock(`https://${opts.org}.slack.com`)
         .post('/api/users.admin.invite')
         .reply(200, {
