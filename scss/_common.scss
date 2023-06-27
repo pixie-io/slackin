@@ -221,6 +221,7 @@ input, textarea {
 }
 
 .footer {
+  padding-top: 150px;
   margin-top: 125px;
   width: 100%;
   display: flex;
@@ -231,63 +232,31 @@ input, textarea {
     margin-top: 32px;
   }
 
-  .social-icons {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 64px 0 32px;
-    max-width: 720px;
-    @media (max-width: 1000px) {
-      display: none;
-    }
-
-    a {
-      &:hover {
-        filter: brightness(0) saturate(100%) invert(69%) sepia(85%) saturate(2173%) hue-rotate(130deg) brightness(102%) contrast(86%);
-      }
-    }
+  .muted-link {
+    color: #596274;
   }
 
-  .links-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    padding-bottom: 32px;
-    @media (max-width: 1000px) {
-      padding-top: 32px;
-      flex-direction: column;
-    }
+  .sandbox {
+    padding-bottom: 36px;
+  }
 
-    a {
-      font-weight: normal;
-      font-size: 15px;
-      line-height: 28px;
-      color: #9696A5;
-      @media (max-width: 1000px) {
-        padding-top: 8px;
-      }
-    }
-
-    .vertical-divider {
-      padding-left: 32px;
-      margin-right: 32px;
-      border-right: 1px solid #9696A5;
-      display: inline-block;
-      height: 50%;
-      @media (max-width: 1000px) {
-        display: none;
-      }
-    }
+  .cncf-logo {
+    margin: 0 auto 40px;
+    max-width: 300px;
   }
 
   .copyright-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
     font-weight: normal;
     font-size: 13px;
     line-height: 24px;
     color: #596274;
-    padding-bottom: 32px;
+    padding: 8px auto;
+    width: 100%;
   }
 }
 

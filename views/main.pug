@@ -30,22 +30,19 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
     body
         .header
             .left
-                img(src=`${path}assets/pixie-logo.svg`, class='header-logo', alt=`Pixie Labs logo`, width='141')
-                a(href='https://slackin.withpixie.ai')
-                    img(src=`${path}assets/small-slack-icon.svg`, alt=`Pixie Slack`)
-                a(href='https://github.com/pixie-labs/pixie')
-                    img(src=`${path}assets/footer/github-icon.svg`, alt=`Pixie Github`)
+                img(src=`${path}assets/pixie-logo.svg`, class='header-logo', alt=`Pixie logo`, width='141')
+                a(href='https://github.com/pixie-io/pixie')
+                    img(src=`${path}assets/github-icon.svg`, alt=`Pixie Github`)
                 a(href='https://twitter.com/pixie_run')
-                        img(src=`${path}assets/footer/twitter-icon.svg`, alt=`Pixie Twitter`)
+                        img(src=`${path}assets/twitter-icon.svg`, alt=`Pixie Twitter`)
+                a(href='https://www.youtube.com/channel/UCOMCDRvBVNIS0lCyOmst7eg/featured')
+                        img(src=`${path}assets/youtube-icon.svg`, alt=`Pixie Youtube`)
 
             .menu-bar
-                .menu-item #[a(href=`https://pixielabs.ai/beta`, target='_top') What's Live?]
-                .menu-item #[a(href=`https://pixielabs.ai/about`, target='_top') Company]
-                .menu-item #[a(href=`https://blog.pixielabs.ai/`, target='_top') Blog]
-                .menu-item #[a(href=`https://pixielabs.ai/community`, target='_top') Community]
-                .menu-item #[a(href=`https://docs.pixielabs.ai/`, target='_top') Docs]
-                .menu-item #[a(href=`https://work.withpixie.ai/auth/login`, target='_top') Sign In]
-                .button #[a(href=`https://work.withpixie.ai/auth/signup`, target='_top') TRY PIXIE]
+                .menu-item #[a(href=`https://px.dev/`, target='_top') Company]
+                .menu-item #[a(href=`https://blog.px.dev/`, target='_top') Blog]
+                .menu-item #[a(href=`https://px.dev/community`, target='_top') Community]
+                .menu-item #[a(href=`https://docs.px.dev/`, target='_top') Docs]
     img(src=`${path}assets/shadow-planet.png`, alt=`planet`).shadow-planet
     .container
         .left-side
@@ -84,39 +81,19 @@ html(lang='en', class=`${large ? 'large' : ''}${iframe ? 'iframe' : ''} theme-${
                 button.button GET INVITE
             p.signin-row Already a member? #[a(href=`https://${org}.slack.com/`, target='_top') Sign in] instead.
         .right-side
-            img(src=`${path}assets/slack-planet.svg`, alt=`Pixie Labs`).slack-planet
+            img(src=`${path}assets/slack-planet.svg`, alt=`Pixie`).slack-planet
             unless iframe
                     .powered-by powered by
                         img(src=`${path}assets/slack-small-logo.svg`, alt=`Slack logo` height='16')
                         a(href='https://github.com/emedvedev/slackin-extended', rel='noopener', target='_blank')  slackin extended
     .footer
-        img(src=`${path}assets/pixie-logo.svg`, alt=`Pixie Labs`).footer-logo
-        .social-icons
-            a(href='https://work.withpixie.ai/docs')
-                img(src=`${path}assets/footer/docs-icon.svg`, alt=`Pixie Docs`)
-
-            a(href='https://github.com/pixie-labs/pixie')
-                img(src=`${path}assets/footer/github-icon.svg`, alt=`Pixie Github`)
-
-            a(href='https://slackin.withpixie.ai')
-                img(src=`${path}assets/footer/slack-icon.svg`, alt=`Pixie Slack`)
-
-            a(href='https://www.youtube.com/channel/UCOMCDRvBVNIS0lCyOmst7eg/featured')
-                img(src=`${path}assets/footer/youtube-icon.svg`, alt=`Pixie Youtube`)
-
-            a(href='https://twitter.com/pixie_run')
-                img(src=`${path}assets/footer/twitter-icon.svg`, alt=`Pixie Twitter`)
-        .links-row
-            a(href='https://work.withpixie.ai/login') SIGN IN
-            .vertical-divider
-            a(href='https://pixielabs.ai/terms') TERMS & PRIVACY
-            .vertical-divider
-            a(href='https://pixielabs.ai/community') COMMUNITY
-            .vertical-divider
-            a(href='https://pixielabs.ai/careers') CAREERS
-            .vertical-divider
-            a(href='https://pixielabs.ai/contact') CONTACT
-        .copyright-row © 2020, Pixie Labs
+        p.sandbox We are a #[a(href='https://cncf.io/') Cloud Native Computing Foundation] sandbox project.
+        img(src=`${path}assets/footer/cncf-logo.svg`, alt=`CNCF`).cncf-logo
+        .copyright-row
+            span #[a(href='https://www.linuxfoundation.org/terms').muted-link Terms of Service] | #[a(href='https://www.linuxfoundation.org/privacy').muted-link Privacy Policy]
+            span Copyright © 2018 - The Pixie Authors. All Rights Reserved.
+            span The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our #[a(href='https://www.linuxfoundation.org/trademark-usage') Trademark Usage Page].
+            span Pixie was originally created and contributed by #[a(href='https://newrelic.com/') New Relic, Inc].
 
     script
         | data = {};
