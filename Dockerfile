@@ -1,7 +1,7 @@
-FROM node:10-alpine
+FROM node:18-alpine
 ADD . /srv/www
 WORKDIR /srv/www
-RUN npm install --unsafe-perm
-RUN npm run build
+RUN yarn install
+RUN yarn build
 
 CMD ./bin/slackin
